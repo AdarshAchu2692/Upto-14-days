@@ -54,6 +54,7 @@ h1, h2 {
   cursor: pointer;
 }
 
+/* 🎵 audio start button */
 .audio-start {
   margin: 15px auto;
   padding: 10px 18px;
@@ -65,21 +66,34 @@ h1, h2 {
   font-style: italic;
 }
 
+/* 📸 POLAROID */
 .polaroid {
   background: white;
   padding: 8px 8px 20px;
   margin: 18px auto;
   box-shadow: 0 6px 14px rgba(0,0,0,0.25);
   border-radius: 4px;
-  max-width: 240px;
 }
 
-.polaroid.small { max-width: 150px; }
-.polaroid.medium { max-width: 240px; }
+.polaroid.medium { width: 220px; }
+.polaroid.small  { width: 140px; }
 
+/* video slightly smaller */
+.small-video {
+  width: 170px;
+}
+
+/* image & video behave same */
 .polaroid img,
 .polaroid video {
   width: 100%;
+  display: block;
+}
+
+/* center helper */
+.center-media {
+  margin-left: auto;
+  margin-right: auto;
   display: block;
 }
 
@@ -87,13 +101,6 @@ h1, h2 {
   display: flex;
   justify-content: center;
   gap: 14px;
-}
-
-.note {
-  background: #efe2d0;
-  padding: 10px;
-  margin-bottom: 10px;
-  text-align: center;
 }
 
 .popup {
@@ -108,39 +115,3 @@ h1, h2 {
 }
 
 .hidden { display: none; }
-
-/* Center blocks for main image & video */
-.center-block {
-  display: flex;
-  justify-content: center;
-}
-
-/* ===============================
-   🌹 ROSE DAY CENTER + SIZE FIX
-================================ */
-
-/* Force center alignment */
-.center-media {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
-/* Main image size (polaroid) */
-.polaroid.medium {
-  width: 220px;
-}
-
-/* Video slightly smaller than image */
-.small-video {
-  width: 170px;   /* 👈 adjust if you want even smaller */
-}
-
-/* Make sure video behaves like image */
-.polaroid video {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-
