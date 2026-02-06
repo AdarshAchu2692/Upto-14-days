@@ -16,29 +16,20 @@ body {
   box-shadow: 0 0 30px rgba(0,0,0,0.4);
 }
 
-h1, h2 {
-  text-align: center;
-}
+h1, h2 { text-align: center; }
 
 .subtitle {
   text-align: center;
   font-style: italic;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
 }
 
-.text, .quote {
+.text {
   text-align: center;
   line-height: 1.6;
 }
 
-.quote {
-  font-style: italic;
-  margin-top: 20px;
-}
-
-.day {
-  display: none;
-}
+.day { display: none; }
 
 .nav {
   text-align: center;
@@ -49,24 +40,22 @@ h1, h2 {
   padding: 8px 16px;
   margin: 0 10px;
   background: #5a3e36;
-  color: white;
+  color: #fff;
   border: none;
   cursor: pointer;
 }
 
-/* 🎵 audio start button */
 .audio-start {
-  margin: 15px auto;
+  margin: 12px auto;
   padding: 10px 18px;
-  width: fit-content;
   background: #efe2d0;
   border: 2px dashed #b08968;
   border-radius: 20px;
+  width: fit-content;
   cursor: pointer;
   font-style: italic;
 }
 
-/* 📸 POLAROID */
 .polaroid {
   background: white;
   padding: 8px 8px 20px;
@@ -78,19 +67,14 @@ h1, h2 {
 .polaroid.medium { width: 220px; }
 .polaroid.small  { width: 140px; }
 
-/* video slightly smaller */
-.small-video {
-  width: 170px;
-}
+.small-video { width: 170px; }
 
-/* image & video behave same */
 .polaroid img,
 .polaroid video {
   width: 100%;
   display: block;
 }
 
-/* center helper */
 .center-media {
   margin-left: auto;
   margin-right: auto;
@@ -101,21 +85,4 @@ h1, h2 {
   display: flex;
   justify-content: center;
   gap: 14px;
-}
-
-.popup {
-  position: fixed;
-  bottom: 30px;
-  left: 50%;
-  transform: translateX(-50%);
-  background: #5a3e36;
-  color: white;
-  padding: 14px 22px;
-  border-radius: 20px;
-}
-
-.hidden { display: none; }
-
-.day {
-  display: block !important;
 }
