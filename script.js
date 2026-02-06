@@ -1,17 +1,15 @@
-// 🔧 DEV MODE
-const DEV_MODE = true; // ❗ set false before sending her
+const DEV_MODE = true; // set false before sending
 
 const days = Array.from(document.querySelectorAll('.day'));
 const popup = document.getElementById('popup');
 
 let index = 0;
 
-// Date check
+// date logic
 const today = new Date();
 const currentDay = today.getDate();
 const currentMonth = today.getMonth() + 1;
 
-// Stop all media when changing pages
 function stopAllMedia() {
   document.querySelectorAll('audio, video').forEach(m => {
     m.pause();
@@ -19,85 +17,74 @@ function stopAllMedia() {
   });
 }
 
-// Show only one day
+function setupAudioStart(section) {
+  const btn = section.querySelector('.audio-start');
+  const music = section.querySelector('audio.bgMusic, #proposeMusic, #promiseMusic');
+
+  if (!btn || !music) return;
+
+  btn.style.display = 'block';
+
+  btn.onclick = () => {
+    music.volume = 1;
+    music.play().catch(()=>{});
+    btn.style.display = 'none';
+  };
+}
+
 function showDay(i) {
   stopAllMedia();
   days.forEach(d => d.style.display = 'none');
   days[i].style.display = 'block';
-
-  // autoplay bg music if exists
-  const music = days[i].querySelector('audio.bgMusic');
-  if (music) {
-    music.muted = true;
-    music.play().catch(()=>{});
-    document.addEventListener('click', () => {
-      music.muted = false;
-      music.play().catch(()=>{});
-    }, { once:true });
-  }
+  setupAudioStart(days[i]);
 }
 
-// Check if day is allowed
 function isAllowed(dayNum) {
   if (DEV_MODE) return true;
   return currentMonth === 2 && currentDay >= dayNum;
 }
 
-// Initial load
+// initial page
 if (DEV_MODE) {
   index = 0;
 } else {
-  for (let i = 0; i < days.length; i++) {
-    if (isAllowed(parseInt(days[i].dataset.day))) index = i;
-  }
+  days.forEach((d, i) => {
+    if (isAllowed(parseInt(d.dataset.day))) index = i;
+  });
 }
 
 showDay(index);
 
-// Navigation
+// nav
 document.getElementById('prevBtn').onclick = () => {
-  if (index > 0) {
-    index--;
-    showDay(index);
-  }
+  if (index > 0) showDay(--index);
 };
 
 document.getElementById('nextBtn').onclick = () => {
   if (index + 1 < days.length) {
     const nextDay = parseInt(days[index + 1].dataset.day);
     if (isAllowed(nextDay)) {
-      index++;
-      showDay(index);
+      showDay(++index);
     } else {
       popup.classList.remove('hidden');
-      setTimeout(() => popup.classList.add('hidden'), 2200);
+      setTimeout(() => popup.classList.add('hidden'), 2000);
     }
   }
 };
 
-// 🎵 Propose day logic
+// Propose day logic
 const proposeMusic = document.getElementById('proposeMusic');
 const proposeVideo = document.getElementById('proposeVideo');
-
-if (proposeVideo && proposeMusic) {
-  proposeMusic.muted = true;
-  proposeMusic.play().catch(()=>{});
-
-  document.addEventListener('click', () => {
-    proposeMusic.muted = false;
-    proposeMusic.play().catch(()=>{});
-  }, { once:true });
-
+if (proposeMusic && proposeVideo) {
   proposeVideo.addEventListener('play', () => proposeMusic.pause());
   proposeVideo.addEventListener('ended', () => proposeMusic.play());
 }
 
-// 🤞 Promise day logic
+// Promise day volume ducking
 const promiseMusic = document.getElementById('promiseMusic');
-const promiseVideo = document.getElementById('promiseVideo');
-
-if (promiseVideo && promiseMusic) {
-  promiseMusic.play().catch(()=>{});
-  promiseVideo.addEventListener('play', () => promiseMusic.pause());
-  promiseVideo.addEventListener('ended', () => promiseMusic.play());
+const promiseVoice = document.getElementById('promiseVoice');
+if (promiseMusic && promiseVoice) {
+  promiseVoice.addEventListener('play', () => promiseMusic.volume = 0.45);
+  promiseVoice.addEventListener('ended', () => promiseMusic.volume = 1);
+  promiseVoice.addEventListener('pause', () => promiseMusic.volume = 1);
 }
