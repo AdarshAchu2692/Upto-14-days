@@ -78,23 +78,34 @@
       </p>
     </section>
 
-    <!-- 🤞 PROMISE DAY -->
-    <section class="day" data-day="11">
-      <h2>🤞 Promise Day</h2>
+ <!-- 🤞 PROMISE DAY -->
+<section class="day" data-day="11">
+  <h2>🤞 Promise Day</h2>
 
-      <audio id="promiseMusic" loop>
-        <source src="assets/audio/promise.mp3">
-      </audio>
+  <!-- Background music -->
+  <audio id="promiseMusic" loop>
+    <source src="assets/audio/promise_music.mp3">
+  </audio>
 
-      <video id="promiseVideo" controls>
-        <source src="assets/videos/promise.mp4">
-      </video>
+  <!-- Silent looping video -->
+  <video autoplay loop muted>
+    <source src="assets/videos/promise.mp4">
+  </video>
 
-      <p class="text">
-        I promise presence.  
-        Even when words feel heavy.
-      </p>
-    </section>
+  <!-- Voice note -->
+  <div class="voice-note">
+    🎧 Tap to hear my promise
+    <audio id="promiseVoice" controls>
+      <source src="assets/audio/promise_voice.mp3">
+    </audio>
+  </div>
+
+  <p class="text">
+    Some promises are not spoken loudly.  
+    They are felt… and kept.
+  </p>
+</section>
+
 
     <!-- 🤗 HUG DAY -->
     <section class="day" data-day="12">
@@ -148,3 +159,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
