@@ -108,3 +108,9 @@ h1, h2 {
 }
 
 .hidden { display: none; }
+
+/* Center blocks for main image & video */
+.center-block {
+  display: flex;
+  justify-content: center;
+}
