@@ -17,110 +17,46 @@
     <button id="nextBtn">Next →</button>
   </div>
 
-<!-- Main rose image (CENTER) -->
-<img
-  src="assets/images/rose_main.jpg"
-  class="polaroid medium center-media"
-  alt="Rose main">
-
-<!-- Rose sentences -->
-<p class="text">
-  A rose doesn’t ask to be noticed.  
-  It simply blooms… and somehow, everything feels softer 🌹
-</p>
-
-<p class="text">
-  If feelings could bloom, mine would bloom quietly…  
-  every time I think of you 🌹
-</p>
-
-<!-- Silent looping video (CENTER & SMALLER) -->
-<video
-  autoplay
-  loop
-  muted
-  playsinline
-  preload="auto"
-  class="polaroid video-loop small-video center-media">
-  <source src="assets/videos/rose_loop.mp4" type="video/mp4">
-</video>
-
-
-
-
-  <!-- 💍 PROPOSE DAY -->
-  <section class="day" data-day="8">
-    <h2>💍 Propose Day</h2>
-
-    <div class="note">🔊 Please turn on the volume</div>
+  <!-- 🌹 ROSE DAY -->
+  <section class="day" data-day="7">
+    <h2>🌹 Rose Day</h2>
 
     <div class="audio-start">🎵 Click here to start music</div>
-    <audio id="proposeMusic" loop>
-      <source src="assets/audio/propose_music.mp3">
+    <audio class="bgMusic" loop>
+      <source src="assets/audio/rose.m4a" type="audio/mp4">
     </audio>
 
-    <video id="proposeVideo" controls class="polaroid medium">
-      <source src="assets/videos/propose.mp4">
-    </video>
+    <!-- Main image (CENTER) -->
+    <img src="assets/images/rose_main.jpg"
+         class="polaroid medium center-media">
 
     <p class="text">
-      I didn’t rehearse this.  
-      My heart already knew where it belonged.
+      A rose doesn’t ask to be noticed.  
+      It simply blooms… and somehow, everything feels softer 🌹
+    </p>
+
+    <p class="text">
+      If feelings could bloom, mine would bloom quietly…  
+      every time I think of you 🌹
+    </p>
+
+    <!-- Video (CENTER + SMALLER) -->
+    <video autoplay loop muted playsinline
+           class="polaroid video-loop small-video center-media">
+      <source src="assets/videos/rose_loop.mp4" type="video/mp4">
+    </video>
+
+    <div class="img-row">
+      <img src="assets/images/rose_1.jpg" class="polaroid small">
+      <img src="assets/images/rose_2.jpg" class="polaroid small">
+    </div>
+
+    <p class="quote">
+      “Like a rose, some feelings are meant to be felt… not explained.”
     </p>
   </section>
 
-  <!-- 🍫 CHOCOLATE DAY -->
-  <section class="day" data-day="9">
-    <h2>🍫 Chocolate Day</h2>
-
-    <div class="audio-start">🎵 Click here to start music</div>
-    <audio class="bgMusic" loop>
-      <source src="assets/audio/chocolate.mp3">
-    </audio>
-
-    <img src="assets/images/chocolate.jpg" class="polaroid medium">
-
-    <p class="text">Sweet things don’t shout. They stay.</p>
-  </section>
-
-  <!-- 🧸 TEDDY DAY -->
-  <section class="day" data-day="10">
-    <h2>🧸 Teddy Day</h2>
-
-    <div class="audio-start">🎵 Click here to start music</div>
-    <audio class="bgMusic" loop>
-      <source src="assets/audio/teddy.mp3">
-    </audio>
-
-    <img src="assets/images/teddy.jpg" class="polaroid medium">
-
-    <p class="text">Comfort is knowing someone is there.</p>
-  </section>
-
-  <!-- 🤞 PROMISE DAY -->
-  <section class="day" data-day="11">
-    <h2>🤞 Promise Day</h2>
-
-    <div class="audio-start">🎵 Click here to start music</div>
-    <audio id="promiseMusic" loop>
-      <source src="assets/audio/promise_music.mp3">
-    </audio>
-
-    <video autoplay loop muted playsinline class="polaroid medium">
-      <source src="assets/videos/promise.mp4">
-    </video>
-
-    <div class="voice-note">
-      🎧 Tap to hear my promise
-      <audio id="promiseVoice" controls>
-        <source src="assets/audio/promise_voice.mp3">
-      </audio>
-    </div>
-
-    <p class="text">Some promises are felt… and kept.</p>
-  </section>
-
-  <!-- 🤗 HUG DAY -->
+  <!-- 🤗 HUG DAY (autoplay loop video) -->
   <section class="day" data-day="12">
     <h2>🤗 Hug Day</h2>
 
@@ -129,36 +65,14 @@
       <source src="assets/audio/hug.mp3">
     </audio>
 
-    <video autoplay loop muted playsinline class="polaroid medium">
-      <source src="assets/videos/hug.mp4">
+    <video autoplay loop muted playsinline
+           class="polaroid medium center-media">
+      <source src="assets/videos/hug.mp4" type="video/mp4">
     </video>
 
-    <p class="text">Some hugs reach the heart.</p>
-  </section>
-
-  <!-- 💋 KISS DAY -->
-  <section class="day" data-day="13">
-    <h2>💋 Kiss Day</h2>
-
-    <div class="audio-start">🎵 Click here to start music</div>
-    <audio class="bgMusic" loop>
-      <source src="assets/audio/kiss.mp3">
-    </audio>
-
-    <img src="assets/images/kiss.jpg" class="polaroid medium">
-
-    <p class="text">Closeness begins before touch.</p>
-  </section>
-
-  <!-- ❤️ VALENTINE DAY -->
-  <section class="day" data-day="14">
-    <h2>❤️ Valentine’s Day</h2>
-
-    <video autoplay loop controls class="polaroid medium">
-      <source src="assets/videos/valentine.mp4">
-    </video>
-
-    <p class="text">You’re my calm. My choice.</p>
+    <p class="text">
+      Some hugs reach the heart… even without arms.
+    </p>
   </section>
 
 </div>
@@ -170,6 +84,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
-
-
