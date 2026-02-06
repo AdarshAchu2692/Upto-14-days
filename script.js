@@ -97,3 +97,52 @@ if (promiseMusic && promiseVoice) {
   promiseVoice.addEventListener('pause', () => promiseMusic.volume = 1);
 }
 
+/* ===============================
+   📸 FINAL POLAROID SIZE (IMAGE + VIDEO)
+================================ */
+
+/* Base polaroid frame */
+.polaroid {
+  background: #ffffff;
+  padding: 8px 8px 20px 8px;   /* bottom padding = polaroid look */
+  margin: 16px auto;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  border-radius: 4px;
+
+  /* 🔒 HARD SIZE LIMIT */
+  width: 220px;               /* THIS controls size */
+}
+
+/* Small polaroids (side images) */
+.polaroid.small {
+  width: 140px;
+}
+
+/* Medium polaroids */
+.polaroid.medium {
+  width: 220px;
+}
+
+/* Image & Video behave SAME */
+.polaroid img,
+.polaroid video {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 2px;
+}
+
+/* Video specific polish */
+.video-loop {
+  overflow: hidden;
+}
+
+/* Row alignment */
+.img-row {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
