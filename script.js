@@ -11,11 +11,19 @@ const currentDay = today.getDate();
 const currentMonth = today.getMonth() + 1;
 
 function stopAllMedia() {
-  document.querySelectorAll('audio, video').forEach(m => {
-    m.pause();
-    m.currentTime = 0;
+  // stop ONLY audio
+  document.querySelectorAll('audio').forEach(a => {
+    a.pause();
+    a.currentTime = 0;
+  });
+
+  // stop ONLY videos that are NOT autoplay loops
+  document.querySelectorAll('video:not([autoplay])').forEach(v => {
+    v.pause();
+    v.currentTime = 0;
   });
 }
+
 
 function setupAudioStart(section) {
   const btn = section.querySelector('.audio-start');
@@ -88,3 +96,4 @@ if (promiseMusic && promiseVoice) {
   promiseVoice.addEventListener('ended', () => promiseMusic.volume = 1);
   promiseVoice.addEventListener('pause', () => promiseMusic.volume = 1);
 }
+
