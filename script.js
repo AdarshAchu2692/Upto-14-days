@@ -1,30 +1,60 @@
-// 🔧 DEV MODE
-const DEV_MODE = true; // 👉 change to false before sending her
+// 🔧 DEV MODE (true = you can see & navigate all days)
+const DEV_MODE = true; // ⚠️ SET TO false before sending her
 
-// Get today's date
+const days = Array.from(document.querySelectorAll('.day'));
+const popup = document.getElementById('popup');
+
+let index = 0;
+
+// Date logic
 const today = new Date();
 const currentDay = today.getDate();
 const currentMonth = today.getMonth() + 1;
 
-const days = document.querySelectorAll('.day');
-const warning = document.getElementById('warning');
+// Hide all days initially
+function hideAll() {
+  days.forEach(d => d.style.display = 'none');
+}
 
-days.forEach(day => {
-  const dayNumber = parseInt(day.dataset.day);
+// Show one day by index
+function showDay(i) {
+  hideAll();
+  days[i].style.display = 'block';
+}
 
-  // If DEV MODE is ON → show everything
-  if (DEV_MODE) {
-    day.style.display = 'block';
-    return;
+// Check if next day is allowed
+function isAllowed(dayNumber) {
+  if (DEV_MODE) return true;
+  return currentMonth === 2 && currentDay >= dayNumber;
+}
+
+// Initial load → show first allowed day
+for (let i = 0; i < days.length; i++) {
+  const dayNum = parseInt(days[i].dataset.day);
+  if (isAllowed(dayNum)) index = i;
+}
+
+showDay(index);
+
+// Navigation buttons
+document.getElementById('prevBtn').onclick = () => {
+  if (index > 0) {
+    index--;
+    showDay(index);
   }
+};
 
-  // REAL LOGIC (for her)
-  if (currentMonth !== 2 || currentDay < dayNumber) {
-    day.style.display = 'none';
+document.getElementById('nextBtn').onclick = () => {
+  const nextIndex = index + 1;
+  if (nextIndex < days.length) {
+    const nextDayNum = parseInt(days[nextIndex].dataset.day);
 
-    day.addEventListener('click', () => {
-      warning.classList.remove('hidden');
-      setTimeout(() => warning.classList.add('hidden'), 2500);
-    });
+    if (isAllowed(nextDayNum)) {
+      index++;
+      showDay(index);
+    } else {
+      popup.classList.remove('hidden');
+      setTimeout(() => popup.classList.add('hidden'), 2200);
+    }
   }
-});
+};
