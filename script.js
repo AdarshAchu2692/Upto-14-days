@@ -4,6 +4,12 @@
 const DEV_MODE = true; // 🔁 set FALSE before sharing with her
 
 // ===============================
+// ⏳ TOO EARLY MESSAGE
+// ===============================
+const TOO_EARLY_MESSAGE = "Dhirthi vekkalle ... Poyit nale vaa";
+
+
+// ===============================
 // 📅 DATE CONFIG
 // ===============================
 const START_DAY = 7;
@@ -176,3 +182,4 @@ if (DEV_MODE) {
 } else {
   console.log('🔒 LIVE MODE: date lock & memory enabled');
 }
+
