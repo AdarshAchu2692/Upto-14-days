@@ -1,167 +1,110 @@
-/* ===============================
-   🌸 GLOBAL RESET
-================================ */
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
-  padding: 0;
-  background: #3b2f2f; /* dark vintage background */
-  font-family: 'Georgia', serif;
+  background: #3b2f2f;
+  font-family: Georgia, serif;
   color: #3a2a22;
 }
 
-/* ===============================
-   📜 PAPER CONTAINER
-================================ */
 .paper {
-  max-width: 720px;
+  max-width: 760px;
   margin: 40px auto;
-  padding: 40px 35px;
+  padding: 40px;
   background: #f8f1e7;
   border-radius: 8px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.45);
-  position: relative;
+  box-shadow: 0 0 30px rgba(0,0,0,0.4);
 }
 
-/* subtle paper texture illusion */
-.paper::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: radial-gradient(
-    rgba(0,0,0,0.04) 1px,
-    transparent 1px
-  );
-  background-size: 6px 6px;
-  opacity: 0.4;
-  pointer-events: none;
-}
-
-/* ===============================
-   ✒️ HEADINGS & TEXT
-================================ */
-h1 {
+h1, h2 {
   text-align: center;
-  font-size: 2.4em;
-  margin-bottom: 5px;
 }
 
 .subtitle {
   text-align: center;
   font-style: italic;
-  margin-bottom: 30px;
-  color: #6b4b3e;
+  margin-bottom: 25px;
 }
 
-h2 {
+.text, .quote {
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 15px;
-}
-
-.text {
-  font-size: 1.1em;
-  line-height: 1.65;
-  text-align: center;
-  margin: 15px 0;
+  line-height: 1.6;
 }
 
 .quote {
-  margin-top: 25px;
-  text-align: center;
   font-style: italic;
-  font-size: 1.05em;
-  color: #5a3e36;
+  margin-top: 20px;
 }
 
-/* ===============================
-   📸 POLAROID STYLE
-================================ */
+.day {
+  display: none;
+}
+
+.nav {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.nav button {
+  padding: 8px 16px;
+  margin: 0 10px;
+  background: #5a3e36;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.audio-start {
+  margin: 15px auto;
+  padding: 10px 18px;
+  width: fit-content;
+  background: #efe2d0;
+  border: 2px dashed #b08968;
+  border-radius: 20px;
+  cursor: pointer;
+  font-style: italic;
+}
+
 .polaroid {
-  background: #fff;
-  padding: 10px 10px 25px 10px; /* extra bottom like real polaroid */
-  box-shadow: 0 10px 20px rgba(0,0,0,0.3);
-  border-radius: 4px;
-  display: block;
+  background: white;
+  padding: 8px 8px 20px;
   margin: 18px auto;
+  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
+  border-radius: 4px;
+  max-width: 240px;
 }
 
-/* size variants */
-.polaroid.medium {
-  width: 260px;
-}
+.polaroid.small { max-width: 150px; }
+.polaroid.medium { max-width: 240px; }
 
-.polaroid.small {
-  width: 180px;
-}
-
-/* video inside polaroid */
-.polaroid video,
-.polaroid img {
+.polaroid img,
+.polaroid video {
   width: 100%;
-  border-radius: 2px;
+  display: block;
 }
 
-/* silent looping video fix */
-.video-loop {
-  padding: 10px;
-}
-
-/* small images row */
 .img-row {
   display: flex;
   justify-content: center;
-  gap: 16px;
-  flex-wrap: wrap;
-}
-
-/* subtle vintage tilt */
-.polaroid:nth-child(odd) {
-  transform: rotate(-1.5deg);
-}
-
-.polaroid:nth-child(even) {
-  transform: rotate(1.2deg);
-}
-
-/* ===============================
-   🎧 AUDIO / NOTE
-================================ */
-audio {
-  display: block;
-  margin: 15px auto;
+  gap: 14px;
 }
 
 .note {
   background: #efe2d0;
-  border-left: 4px solid #b08968;
   padding: 10px;
+  margin-bottom: 10px;
   text-align: center;
-  font-style: italic;
-  margin-bottom: 15px;
 }
 
-/* ===============================
-   📱 RESPONSIVE
-================================ */
-@media (max-width: 600px) {
-  .paper {
-    padding: 30px 20px;
-    margin: 20px 10px;
-  }
-
-  .polaroid.medium {
-    width: 220px;
-  }
-
-  .polaroid.small {
-    width: 150px;
-  }
-
-  h1 {
-    font-size: 2em;
-  }
+.popup {
+  position: fixed;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: #5a3e36;
+  color: white;
+  padding: 14px 22px;
+  border-radius: 20px;
 }
+
+.hidden { display: none; }
