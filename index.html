@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>For You ❤️</title>
+  <title>Valentine Week 💖</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -18,7 +18,7 @@
   </div>
 
   <!-- 🌹 ROSE DAY -->
-  <section class="day" data-day="7">
+  <section class="day">
     <h2>🌹 Rose Day</h2>
 
     <div class="audio-start">🎵 Click here to start music</div>
@@ -26,9 +26,7 @@
       <source src="assets/audio/rose.m4a" type="audio/mp4">
     </audio>
 
-    <!-- Main image (CENTER) -->
-    <img src="assets/images/rose_main.jpg"
-         class="polaroid medium center-media">
+    <img src="assets/images/rose_main.jpg" class="polaroid medium center-media">
 
     <p class="text">
       A rose doesn’t ask to be noticed.  
@@ -40,9 +38,8 @@
       every time I think of you 🌹
     </p>
 
-    <!-- Video (CENTER + SMALLER) -->
     <video autoplay loop muted playsinline
-           class="polaroid video-loop small-video center-media">
+      class="polaroid small-video center-media">
       <source src="assets/videos/rose_loop.mp4" type="video/mp4">
     </video>
 
@@ -50,14 +47,81 @@
       <img src="assets/images/rose_1.jpg" class="polaroid small">
       <img src="assets/images/rose_2.jpg" class="polaroid small">
     </div>
+  </section>
 
-    <p class="quote">
-      “Like a rose, some feelings are meant to be felt… not explained.”
+  <!-- 💍 PROPOSE DAY -->
+  <section class="day">
+    <h2>💍 Propose Day</h2>
+
+    <div class="audio-start">🎵 Click here to start music</div>
+    <audio class="bgMusic" loop>
+      <source src="assets/audio/propose.mp3">
+    </audio>
+
+    <video controls class="polaroid medium center-media">
+      <source src="assets/videos/propose.mp4">
+    </video>
+
+    <p class="text">
+      I didn’t rehearse this.  
+      My heart already knew where it belonged.
     </p>
   </section>
 
-  <!-- 🤗 HUG DAY (autoplay loop video) -->
-  <section class="day" data-day="12">
+  <!-- 🍫 CHOCOLATE DAY -->
+  <section class="day">
+    <h2>🍫 Chocolate Day</h2>
+
+    <div class="audio-start">🎵 Click here to start music</div>
+    <audio class="bgMusic" loop>
+      <source src="assets/audio/chocolate.mp3">
+    </audio>
+
+    <img src="assets/images/chocolate.jpg" class="polaroid medium center-media">
+
+    <p class="text">Sweet things don’t shout. They stay.</p>
+  </section>
+
+  <!-- 🧸 TEDDY DAY -->
+  <section class="day">
+    <h2>🧸 Teddy Day</h2>
+
+    <div class="audio-start">🎵 Click here to start music</div>
+    <audio class="bgMusic" loop>
+      <source src="assets/audio/teddy.mp3">
+    </audio>
+
+    <img src="assets/images/teddy.jpg" class="polaroid medium center-media">
+
+    <p class="text">Comfort is knowing someone is there.</p>
+  </section>
+
+  <!-- 🤞 PROMISE DAY -->
+  <section class="day">
+    <h2>🤞 Promise Day</h2>
+
+    <div class="audio-start">🎵 Click here to start music</div>
+    <audio class="bgMusic" loop id="promiseMusic">
+      <source src="assets/audio/promise_music.mp3">
+    </audio>
+
+    <video autoplay loop muted playsinline
+      class="polaroid medium center-media">
+      <source src="assets/videos/promise.mp4">
+    </video>
+
+    <div class="voice-note">
+      🎧 Tap to hear my promise
+      <audio id="promiseVoice" controls>
+        <source src="assets/audio/promise_voice.mp3">
+      </audio>
+    </div>
+
+    <p class="text">Some promises are felt… and kept.</p>
+  </section>
+
+  <!-- 🤗 HUG DAY -->
+  <section class="day">
     <h2>🤗 Hug Day</h2>
 
     <div class="audio-start">🎵 Click here to start music</div>
@@ -66,19 +130,39 @@
     </audio>
 
     <video autoplay loop muted playsinline
-           class="polaroid medium center-media">
-      <source src="assets/videos/hug.mp4" type="video/mp4">
+      class="polaroid medium center-media">
+      <source src="assets/videos/hug.mp4">
     </video>
 
-    <p class="text">
-      Some hugs reach the heart… even without arms.
-    </p>
+    <p class="text">Some hugs reach the heart.</p>
   </section>
 
-</div>
+  <!-- 💋 KISS DAY -->
+  <section class="day">
+    <h2>💋 Kiss Day</h2>
 
-<div id="popup" class="popup hidden">
-  😄 Too early… come back on the right day 💖
+    <div class="audio-start">🎵 Click here to start music</div>
+    <audio class="bgMusic" loop>
+      <source src="assets/audio/kiss.mp3">
+    </audio>
+
+    <img src="assets/images/kiss.jpg" class="polaroid medium center-media">
+
+    <p class="text">Closeness begins before touch.</p>
+  </section>
+
+  <!-- ❤️ VALENTINE DAY -->
+  <section class="day">
+    <h2>❤️ Valentine’s Day</h2>
+
+    <video autoplay loop controls
+      class="polaroid medium center-media">
+      <source src="assets/videos/valentine.mp4">
+    </video>
+
+    <p class="text">You are my calm. My choice.</p>
+  </section>
+
 </div>
 
 <script src="script.js"></script>
