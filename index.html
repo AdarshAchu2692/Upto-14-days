@@ -17,33 +17,60 @@
     <button id="nextBtn">Next →</button>
   </div>
 
-  <!-- 🌹 ROSE DAY -->
-  <section class="day" data-day="7">
-    <h2>🌹 Rose Day</h2>
+ <!-- 🌹 ROSE DAY -->
+<section class="day" data-day="7">
+  <h2>🌹 Rose Day</h2>
 
-    <div class="audio-start">🎵 Click here to start music</div>
-    <audio class="bgMusic" loop>
-      <source src="assets/audio/rose.m4a" type="audio/mp4">
-    </audio>
+  <!-- 🎵 Start music button -->
+  <div class="audio-start">🎵 Click here to start music</div>
 
-    <p class="text">
-      A rose doesn’t ask to be noticed.  
-      It simply blooms… and somehow, everything feels softer 🌹
-    </p>
+  <!-- Background music -->
+  <audio class="bgMusic" loop>
+    <source src="assets/audio/rose.m4a" type="audio/mp4">
+  </audio>
 
-    <img src="assets/images/rose_main.jpg" class="polaroid medium">
+  <!-- 1️⃣ Main rose image -->
+  <img
+    src="assets/images/rose_main.jpg"
+    class="polaroid medium"
+    alt="Rose main">
 
-    <video autoplay loop muted playsinline class="polaroid video-loop">
-      <source src="assets/videos/rose_loop.mp4" type="video/mp4">
-    </video>
+  <!-- 2️⃣ Rose sentence -->
+  <p class="text">
+    A rose doesn’t ask to be noticed.  
+    It simply blooms… and somehow, everything feels softer 🌹
+  </p>
 
-    <div class="img-row">
-      <img src="assets/images/rose_1.jpg" class="polaroid small">
-      <img src="assets/images/rose_2.jpg" class="polaroid small">
-    </div>
+  <!-- 3️⃣ Silent looping polaroid video -->
+  <video
+    autoplay
+    loop
+    muted
+    playsinline
+    preload="auto"
+    class="polaroid video-loop">
+    <source src="assets/videos/rose_loop.mp4" type="video/mp4">
+  </video>
 
-    <p class="quote">“Like a rose, some feelings are meant to be felt… not explained.”</p>
-  </section>
+  <!-- 4️⃣ Two small images -->
+  <div class="img-row">
+    <img
+      src="assets/images/rose_1.jpg"
+      class="polaroid small"
+      alt="Rose 1">
+
+    <img
+      src="assets/images/rose_2.jpg"
+      class="polaroid small"
+      alt="Rose 2">
+  </div>
+
+  <!-- Quote -->
+  <p class="quote">
+    “Like a rose, some feelings are meant to be felt… not explained.”
+  </p>
+</section>
+
 
   <!-- 💍 PROPOSE DAY -->
   <section class="day" data-day="8">
@@ -167,3 +194,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
