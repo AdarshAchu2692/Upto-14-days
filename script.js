@@ -28,11 +28,17 @@ function isAllowed(dayNumber) {
   return currentMonth === 2 && currentDay >= dayNumber;
 }
 
-// Initial load → show first allowed day
-for (let i = 0; i < days.length; i++) {
-  const dayNum = parseInt(days[i].dataset.day);
-  if (isAllowed(dayNum)) index = i;
+// Initial page load logic
+if (DEV_MODE) {
+  index = 0; // Always start from Feb 7 in dev mode
+} else {
+  // In real mode, start from latest unlocked day
+  for (let i = 0; i < days.length; i++) {
+    const dayNum = parseInt(days[i].dataset.day);
+    if (isAllowed(dayNum)) index = i;
+  }
 }
+
 
 showDay(index);
 
@@ -58,3 +64,4 @@ document.getElementById('nextBtn').onclick = () => {
     }
   }
 };
+
