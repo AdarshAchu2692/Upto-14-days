@@ -128,6 +128,22 @@ function showPopup() {
 }
 
 // ===============================
+// 💬 TOO EARLY MODAL LOGIC
+// ===============================
+const nextModal = document.getElementById('nextMessageModal');
+const nextMessageText = document.getElementById('nextMessageText');
+const nextContinueBtn = document.getElementById('nextContinueBtn');
+
+function showEarlyMessage(message){
+  nextMessageText.innerText = message;
+  nextModal.classList.remove('hidden');
+}
+
+nextContinueBtn.onclick = () => {
+  nextModal.classList.add('hidden');
+};
+
+// ===============================
 // 🔘 NAVIGATION
 // ===============================
 prevBtn.onclick = () => {
@@ -140,11 +156,12 @@ nextBtn.onclick = () => {
   const nextIndex = currentIndex + 1;
 
   if (nextIndex < days.length) {
-    if (isAllowed(nextIndex)) {
-      showDay(nextIndex);
-    } else {
-      showPopup();
-    }
+   if (isAllowed(nextIndex)) {
+  showDay(nextIndex);
+} else {
+  showEarlyMessage(TOO_EARLY_MESSAGE);
+}
+
   }
 };
 
@@ -182,4 +199,5 @@ if (DEV_MODE) {
 } else {
   console.log('🔒 LIVE MODE: date lock & memory enabled');
 }
+
 
