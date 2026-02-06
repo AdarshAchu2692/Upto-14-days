@@ -1,7 +1,7 @@
 // ===============================
 // 🔧 DEV MODE SWITCH
 // ===============================
-const DEV_MODE = false; // 🔁 set FALSE before sharing with her
+const DEV_MODE = true; // 🔁 set FALSE before sharing with her
 
 // ===============================
 // ⏳ TOO EARLY MESSAGE
@@ -199,6 +199,7 @@ if (DEV_MODE) {
 } else {
   console.log('🔒 LIVE MODE: date lock & memory enabled');
 }
+
 
 
 
