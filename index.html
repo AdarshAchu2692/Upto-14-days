@@ -19,16 +19,38 @@
 
   <div class="days">
 
-    <!-- 🌹 ROSE DAY -->
+    <!-- 🌹 ROSE DAY (UPDATED) -->
     <section class="day" data-day="7">
       <h2>🌹 Rose Day</h2>
-      <img src="assets/images/rose.jpg">
-      <video autoplay loop>
-        <source src="assets/videos/rose.mp4">
-      </video>
+
+      <!-- Background music -->
+      <audio class="bgMusic" loop>
+        <source src="assets/audio/rose.m4a" type="audio/mp4">
+      </audio>
+
+      <!-- Rose sentence -->
       <p class="text">
-        Some feelings don’t need words.  
-        They bloom quietly… like this 🌹
+        A rose doesn’t ask for attention.  
+        It simply blooms… and somehow, everything feels softer 🌹
+      </p>
+
+      <!-- Medium image -->
+      <img src="assets/images/rose_main.jpg" class="img-medium">
+
+      <!-- Silent looping video -->
+      <video autoplay loop muted class="video-loop">
+        <source src="assets/videos/rose_loop.mp4">
+      </video>
+
+      <!-- Two normal images -->
+      <div class="img-row">
+        <img src="assets/images/rose_1.jpg" class="img-small">
+        <img src="assets/images/rose_2.jpg" class="img-small">
+      </div>
+
+      <!-- Quote -->
+      <p class="quote">
+        “Like a rose, some feelings are meant to be felt… not explained.”
       </p>
     </section>
 
@@ -55,10 +77,13 @@
     <!-- 🍫 CHOCOLATE DAY -->
     <section class="day" data-day="9">
       <h2>🍫 Chocolate Day</h2>
+
       <audio class="bgMusic" loop>
         <source src="assets/audio/chocolate.mp3">
       </audio>
+
       <img src="assets/images/chocolate.jpg">
+
       <p class="text">
         Sweet things don’t shout.  
         They stay… and make life warmer.
@@ -68,54 +93,56 @@
     <!-- 🧸 TEDDY DAY -->
     <section class="day" data-day="10">
       <h2>🧸 Teddy Day</h2>
+
       <audio class="bgMusic" loop>
         <source src="assets/audio/teddy.mp3">
       </audio>
+
       <img src="assets/images/teddy.jpg">
+
       <p class="text">
         Comfort is knowing someone is there —  
         even in silence.
       </p>
     </section>
 
- <!-- 🤞 PROMISE DAY -->
-<section class="day" data-day="11">
-  <h2>🤞 Promise Day</h2>
+    <!-- 🤞 PROMISE DAY (voice + ducked music) -->
+    <section class="day" data-day="11">
+      <h2>🤞 Promise Day</h2>
 
-  <!-- Background music -->
-  <audio id="promiseMusic" loop>
-    <source src="assets/audio/promise_music.mp3">
-  </audio>
+      <audio id="promiseMusic" loop>
+        <source src="assets/audio/promise_music.mp3">
+      </audio>
 
-  <!-- Silent looping video -->
-  <video autoplay loop muted>
-    <source src="assets/videos/promise.mp4">
-  </video>
+      <video autoplay loop muted>
+        <source src="assets/videos/promise.mp4">
+      </video>
 
-  <!-- Voice note -->
-  <div class="voice-note">
-    🎧 Tap to hear my promise
-    <audio id="promiseVoice" controls>
-      <source src="assets/audio/promise_voice.mp3">
-    </audio>
-  </div>
+      <div class="voice-note">
+        🎧 Tap to hear my promise
+        <audio id="promiseVoice" controls>
+          <source src="assets/audio/promise_voice.mp3">
+        </audio>
+      </div>
 
-  <p class="text">
-    Some promises are not spoken loudly.  
-    They are felt… and kept.
-  </p>
-</section>
-
+      <p class="text">
+        Some promises are not spoken loudly.  
+        They are felt… and kept.
+      </p>
+    </section>
 
     <!-- 🤗 HUG DAY -->
     <section class="day" data-day="12">
       <h2>🤗 Hug Day</h2>
+
       <audio class="bgMusic" loop>
         <source src="assets/audio/hug.mp3">
       </audio>
+
       <video autoplay loop muted>
         <source src="assets/videos/hug.mp4">
       </video>
+
       <p class="text">
         Some hugs are felt…  
         even from miles away.
@@ -125,10 +152,13 @@
     <!-- 💋 KISS DAY -->
     <section class="day" data-day="13">
       <h2>💋 Kiss Day</h2>
+
       <audio class="bgMusic" loop>
         <source src="assets/audio/kiss.mp3">
       </audio>
+
       <img src="assets/images/kiss.jpg">
+
       <p class="text">
         Intimacy begins  
         long before the touch.
@@ -138,9 +168,11 @@
     <!-- ❤️ VALENTINE DAY -->
     <section class="day" data-day="14">
       <h2>❤️ Valentine’s Day</h2>
+
       <video autoplay loop controls>
         <source src="assets/videos/valentine.mp4">
       </video>
+
       <p class="text">
         Loving you feels like alignment.  
         Like this is where I belong.
@@ -148,7 +180,6 @@
     </section>
 
   </div>
-
 </div>
 
 <div id="popup" class="popup hidden">
@@ -159,4 +190,3 @@
 <script src="script.js"></script>
 </body>
 </html>
-
