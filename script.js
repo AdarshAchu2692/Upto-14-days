@@ -117,6 +117,44 @@ if(promiseMusic && promiseVoice){
   promiseVoice.addEventListener('ended', ()=> promiseMusic.play().catch(()=>{}));
   promiseVoice.addEventListener('pause', ()=> promiseMusic.play().catch(()=>{}));
 }
+// ===============================
+// 🤗 HUG DAY – REAL FEEL LOGIC
+// ===============================
+const hugCircle = document.getElementById('hugCircle');
+const hugText = document.getElementById('hugText');
+
+let hugTimer;
+let hugCompleted = false;
+
+if (hugCircle && hugText) {
+
+  const startHug = () => {
+    hugCompleted = false;
+    hugCircle.innerText = "🤗";
+    hugCircle.classList.add('hug-warm');
+    hugText.innerText = "I’m right here… just stay.";
+
+    hugTimer = setTimeout(() => {
+      hugCompleted = true;
+      hugText.innerText = "That’s it… breathe. You’re safe here 🤍";
+    }, 2000);
+  };
+
+  const endHug = () => {
+    clearTimeout(hugTimer);
+    hugCircle.innerText = "🤍";
+    hugCircle.classList.remove('hug-warm');
+
+    hugText.innerText = hugCompleted
+      ? "That warmth you feel… keep it with you today 🫶"
+      : "Stay a little longer next time 🤍";
+  };
+
+  hugCircle.addEventListener('mousedown', startHug);
+  hugCircle.addEventListener('mouseup', endHug);
+  hugCircle.addEventListener('touchstart', startHug);
+  hugCircle.addEventListener('touchend', endHug);
+}
 
 showDay(0);
 
@@ -144,6 +182,7 @@ if (chocoBar) {
     }
   };
 }
+
 
 
 
