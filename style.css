@@ -139,5 +139,12 @@ h1, h2 { text-align: center; }
 .polaroid.large {
   width: 400px;
 }
+/* 📸 Polaroid random rotation */
+.polaroid.rotate-1 { transform: rotate(-3deg); }
+.polaroid.rotate-2 { transform: rotate(2deg); }
+.polaroid.rotate-3 { transform: rotate(-1.5deg); }
+.polaroid.rotate-4 { transform: rotate(3deg); }
+.polaroid.rotate-5 { transform: rotate(1deg); }
+
 
 
