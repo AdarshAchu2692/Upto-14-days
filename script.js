@@ -41,8 +41,8 @@ function setupAudio(section){
     };
   }
 
-  // 🎬 STOP MUSIC WHEN VIDEO PLAYS
-  if (video && music) {
+  // 🎬 ONLY stop music if video has audio
+  if (video && music && !video.muted) {
     video.addEventListener('play', () => {
       music.pause();
     });
@@ -104,4 +104,5 @@ if(promiseMusic && promiseVoice){
 }
 
 showDay(0);
+
 
