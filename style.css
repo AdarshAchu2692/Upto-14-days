@@ -162,5 +162,12 @@ h1, h2 { text-align: center; }
     transform: translateY(0);
   }
 }
+.choco-bar{
+  font-size: 32px;
+  letter-spacing: 4px;
+  cursor: pointer;
+  user-select: none;
+}
+
 
 
