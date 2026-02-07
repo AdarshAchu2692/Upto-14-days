@@ -120,6 +120,31 @@ if(promiseMusic && promiseVoice){
 
 showDay(0);
 
+// 🍫 Chocolate Day – One bite at a time
+let biteCount = 0;
+
+const biteMessages = [
+  "A little sweetness… and suddenly I’m thinking of you closer than I should 🍫",
+  "The more time passes, the harder it is to pretend I don’t miss you 😌",
+  "Some sweetness lingers… like the thought of you staying a little longer 💕",
+  "Almost gone… but the warmth is still here, isn’t it? 🫶",
+  "Like chocolate melting slowly… I stopped resisting what I feel for you ❤️"
+];
+
+
+const chocoBar = document.getElementById('chocoBar');
+const biteMessage = document.getElementById('biteMessage');
+
+if (chocoBar) {
+  chocoBar.onclick = () => {
+    if (biteCount < 5) {
+      biteCount++;
+      chocoBar.innerText = "🍫".repeat(5 - biteCount);
+      biteMessage.innerText = biteMessages[biteCount - 1];
+    }
+  };
+}
+
 
 
 
