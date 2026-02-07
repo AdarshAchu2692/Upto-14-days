@@ -66,11 +66,26 @@ function isAllowed(index){
 
 function showDay(index){
   stopAllMedia();
-  days.forEach(d=>d.style.display='none');
-  days[index].style.display='block';
+
+  days.forEach(d => d.style.display = 'none');
+  days[index].style.display = 'block';
+
   setupAudio(days[index]);
+
+  // 💋 Kiss Day fade-in animation (index 6)
+  if (index === 6) {
+    const items = days[index].querySelectorAll('.polaroid');
+    items.forEach((el, i) => {
+      el.classList.remove('fade-in');
+      setTimeout(() => {
+        el.classList.add('fade-in');
+      }, i * 120);
+    });
+  }
+
   currentIndex = index;
 }
+
 
 function showEarlyMessage(){
   nextMessageText.innerText = TOO_EARLY_MESSAGE;
@@ -104,6 +119,7 @@ if(promiseMusic && promiseVoice){
 }
 
 showDay(0);
+
 
 
 
