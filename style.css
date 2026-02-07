@@ -147,4 +147,20 @@ h1, h2 { text-align: center; }
 .polaroid.rotate-5 { transform: rotate(1deg); }
 
 
+/* 💋 Kiss Day fade-in */
+.fade-in {
+  animation: fadeInUp 0.8s ease both;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
