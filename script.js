@@ -9,7 +9,7 @@ const nextBtn = document.getElementById('nextBtn');
 
 let currentIndex = 0;
 
-const TOO_EARLY_MESSAGE = "dhirthi vekkalle ... Poyit nale vaa";
+const TOO_EARLY_MESSAGE = "Dhirthi vekkalle kanna... Poyit nale vaa";
 
 const nextModal = document.getElementById('nextMessageModal');
 const nextMessageText = document.getElementById('nextMessageText');
@@ -104,5 +104,6 @@ if(promiseMusic && promiseVoice){
 }
 
 showDay(0);
+
 
 
