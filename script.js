@@ -26,13 +26,37 @@ function setupAudio(section){
   const start = section.querySelector('.audio-start');
   const stop = section.querySelector('.audio-stop');
   const music = section.querySelector('.bgMusic, #promiseMusic');
+  const video = section.querySelector('video');
 
-  if(start) start.onclick = ()=> music.play().catch(()=>{});
-  if(stop) stop.onclick = ()=>{
-    music.pause();
-    music.currentTime = 0;
-  };
+  if (start && music) {
+    start.onclick = () => {
+      music.play().catch(()=>{});
+    };
+  }
+
+  if (stop && music) {
+    stop.onclick = () => {
+      music.pause();
+      music.currentTime = 0;
+    };
+  }
+
+  // 🎬 STOP MUSIC WHEN VIDEO PLAYS
+  if (video && music) {
+    video.addEventListener('play', () => {
+      music.pause();
+    });
+
+    video.addEventListener('pause', () => {
+      music.play().catch(()=>{});
+    });
+
+    video.addEventListener('ended', () => {
+      music.play().catch(()=>{});
+    });
+  }
 }
+
 
 function isAllowed(index){
   if(DEV_MODE) return true;
@@ -80,3 +104,4 @@ if(promiseMusic && promiseVoice){
 }
 
 showDay(0);
+
