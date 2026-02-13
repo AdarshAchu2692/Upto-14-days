@@ -188,16 +188,37 @@
 
 <!-- ❤️ VALENTINE DAY -->
 <section class="day">
-<h2>❤️ Valentine’s Day</h2>
+  <h2>❤️ Valentine’s Day</h2>
 
-<div class="letter-btn" onclick="openLetter()">💌 A Letter for u</div>
+  <!-- TOP MESSAGE -->
+  <p class="text" style="font-size:20px; margin-top:10px;">
+    Happy Valentine’s Day ❤️
+  </p>
 
-<video autoplay loop controls class="polaroid medium center-media">
-<source src="assets/videos/valentine.mp4">
-</video>
+  <!-- MUSIC CONTROLS -->
+  <div class="audio-controls">
+    <span class="audio-start">🎵 Start music</span>
+    <span class="audio-stop">⏹ Stop</span>
+  </div>
+  <audio class="bgMusic" loop>
+    <source src="assets/audio/valentine.mp3">
+  </audio>
 
-<p class="text">You are my calm. My choice.</p>
+  <!-- LETTER BUTTON -->
+  <div class="letter-btn" onclick="openLetter()">
+    💌 A Letter for u
+  </div>
+
+  <!-- VIDEO -->
+  <video autoplay loop controls class="polaroid medium center-media">
+    <source src="assets/videos/valentine.mp4">
+  </video>
+
+  <!-- FINAL LINE -->
+  <p class="text">You are my calm. My choice.</p>
+
 </section>
+
 
 </div>
 
@@ -228,3 +249,4 @@
 <script src="script.js"></script>
 </body>
 </html>
+
