@@ -155,6 +155,14 @@ if (hugCircle && hugText) {
   hugCircle.addEventListener('touchstart', startHug);
   hugCircle.addEventListener('touchend', endHug);
 }
+// 💌 Valentine Letter
+function openLetter(){
+  document.getElementById('letterPage').classList.remove('hidden');
+}
+
+function closeLetter(){
+  document.getElementById('letterPage').classList.add('hidden');
+}
 
 showDay(0);
 
@@ -182,6 +190,7 @@ if (chocoBar) {
     }
   };
 }
+
 
 
 
