@@ -1,4 +1,4 @@
-const DEV_MODE = true;
+const DEV_MODE = false;
 
 const START_DAY = 7;
 const END_DAY = 14;
@@ -125,3 +125,4 @@ function closeLetter(){
 
 currentIndex = getTodayIndex();
 showDay(currentIndex);
+
