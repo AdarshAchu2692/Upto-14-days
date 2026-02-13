@@ -1,423 +1,48 @@
-* { box-sizing: border-box; }
+*{box-sizing:border-box}
+body{margin:0;background:#3b2f2f;font-family:Georgia,serif;color:#3a2a22}
+.paper{max-width:760px;margin:40px auto;padding:40px;background:#f8f1e7;border-radius:8px;box-shadow:0 0 30px rgba(0,0,0,.4)}
+h1,h2{text-align:center}
+.subtitle{text-align:center;font-style:italic;margin-bottom:20px}
+.text{text-align:center;line-height:1.6}
+.day{display:none}
+.nav{text-align:center;margin-bottom:20px}
+.nav button{padding:8px 16px;margin:0 10px;background:#5a3e36;color:#fff;border:none;cursor:pointer}
 
-body {
-  margin: 0;
-  background: #3b2f2f;
-  font-family: Georgia, serif;
-  color: #3a2a22;
-}
+.audio-controls{display:flex;justify-content:center;gap:10px;margin:12px 0}
+.audio-start,.audio-stop{padding:6px 14px;border-radius:16px;cursor:pointer}
+.audio-start{background:#efe2d0;border:2px dashed #b08968}
+.audio-stop{background:#c0392b;color:#fff}
 
-.paper {
-  max-width: 760px;
-  margin: 40px auto;
-  padding: 40px;
-  background: #f8f1e7;
-  border-radius: 8px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.4);
-}
+.polaroid{background:white;padding:8px 8px 20px;margin:18px auto;box-shadow:0 6px 14px rgba(0,0,0,.25);border-radius:4px}
+.polaroid.medium{width:220px}
+.polaroid.small{width:140px}
+.polaroid.large{width:400px}
+.small-video{width:170px}
+.polaroid img,.polaroid video{width:100%}
+.center-media{margin:auto;display:block}
+.img-row{display:flex;justify-content:center;gap:14px}
 
-h1, h2 { text-align: center; }
+/* future modal */
+.next-modal{position:fixed;inset:0;background:rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;z-index:9999}
+.next-modal.hidden{display:none}
+.next-box{background:#fff;padding:20px;border-radius:8px;text-align:center}
 
-.subtitle {
-  text-align: center;
-  font-style: italic;
-  margin-bottom: 20px;
-}
-
-.text {
-  text-align: center;
-  line-height: 1.6;
-}
-
-.day { display: none; }
-
-.nav {
-  text-align: center;
-  margin-bottom: 20px;
-}
-
-.nav button {
-  padding: 8px 16px;
-  margin: 0 10px;
-  background: #5a3e36;
-  color: #fff;
-  border: none;
-  cursor: pointer;
-}
-
-.audio-controls{
-  display: flex;
-  justify-content: center;
-  gap: 10px;
-  margin: 12px 0;
-}
-
-.audio-start,
-.audio-stop{
-  padding: 6px 14px;
-  border-radius: 16px;
-  cursor: pointer;
-  font-style: italic;
-}
-
-.audio-start{
-  background: #efe2d0;
-  border: 2px dashed #b08968;
-}
-
-.audio-stop{
-  background: #c0392b;
-  color: #fff;
-}
-
-.polaroid {
-  background: white;
-  padding: 8px 8px 20px;
-  margin: 18px auto;
-  box-shadow: 0 6px 14px rgba(0,0,0,0.25);
-  border-radius: 4px;
-}
-
-.polaroid.medium { width: 220px; }
-.polaroid.small  { width: 140px; }
-.small-video { width: 170px; }
-
-.polaroid img,
-.polaroid video {
-  width: 100%;
-  display: block;
-}
-
-.center-media {
-  margin-left: auto;
-  margin-right: auto;
-  display: block;
-}
-
-.img-row {
-  display: flex;
-  justify-content: center;
-  gap: 14px;
-}
-
-/* MODAL */
-.next-modal{
-  position: fixed;
-  inset: 0;
-  background: rgba(59,47,47,0.55);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.next-modal.hidden{ display:none; }
-
-.next-box{
-  background: #f8f1e7;
-  padding: 28px 32px;
-  border-radius: 10px;
-  max-width: 320px;
-  text-align: center;
-}
-
-.next-box p{
-  font-size: 18px;
-  font-style: italic;
-  margin-bottom: 20px;
-}
-
-.next-box button{
-  background: #5a3e36;
-  color: #fff;
-  border: none;
-  padding: 9px 24px;
-  border-radius: 22px;
-  cursor: pointer;
-}
-
-.polaroid.large {
-  width: 400px;
-}
-/* 📸 Polaroid random rotation */
-.polaroid.rotate-1 { transform: rotate(-3deg); }
-.polaroid.rotate-2 { transform: rotate(2deg); }
-.polaroid.rotate-3 { transform: rotate(-1.5deg); }
-.polaroid.rotate-4 { transform: rotate(3deg); }
-.polaroid.rotate-5 { transform: rotate(1deg); }
-
-
-/* 💋 Kiss Day fade-in */
-.fade-in {
-  animation: fadeInUp 0.8s ease both;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(12px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.choco-bar{
-  font-size: 32px;
-  letter-spacing: 4px;
-  cursor: pointer;
-  user-select: none;
-}
-
-/* 🤗 Real Hug Effect */
-
-.hug-area{
-  text-align: center;
-  margin-top: 25px;
-}
-
-#hugCircle{
-  width: 90px;
-  height: 90px;
-  margin: 0 auto 14px;
-  border-radius: 50%;
-  background: #f3e5dc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 34px;
-  cursor: pointer;
-  user-select: none;
-}
-
-.hug-pulse{
-  animation: pulse 1.6s infinite;
-}
-
-@keyframes pulse{
-  0%   { transform: scale(1); }
-  50%  { transform: scale(1.08); }
-  100% { transform: scale(1); }
-}
-
-.hug-warm{
-  background: #e6c8b8 !important;
-}
-
-/* 💌 LETTER BUTTON */
-.letter-btn{
-  margin: 18px auto;
-  width: fit-content;
-  padding: 10px 20px;
-  background: #5a3e36;
-  color: #fff;
-  border-radius: 20px;
-  cursor: pointer;
-  font-style: italic;
-}
-
-/* LETTER PAGE */
-.letter{
-  position: fixed;
-  inset: 0;
-  background: rgba(59,47,47,0.7);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.hidden{
-  display: none;
-}
-
-.letter-paper{
-  background: #f8f1e7;
-  max-width: 500px;
-  padding: 35px;
-  border-radius: 8px;
-  box-shadow: 0 0 30px rgba(0,0,0,0.4);
-  font-style: italic;
-  line-height: 1.8;
-  animation: fadeIn 0.5s ease;
-}
-
-.sign{
-  margin-top: 20px;
-  text-align: right;
-}
-
-.back-btn{
-  margin-top: 25px;
-  padding: 8px 16px;
-  background: #5a3e36;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-@keyframes fadeIn{
-  from{opacity:0; transform:translateY(10px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-
-/* ❤️ FULLSCREEN LETTER EXPERIENCE */
-
+/* letter overlay */
 .letter-overlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(20,10,10,0.65);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
+position:fixed;inset:0;background:rgba(20,10,10,.65);
+display:flex;align-items:center;justify-content:center;z-index:9999
 }
+.hidden{display:none}
+.envelope{font-size:60px;cursor:pointer;animation:float 2s infinite}
+@keyframes float{50%{transform:translateY(-8px)}}
 
-/* floating envelope */
-.envelope{
-  font-size: 64px;
-  cursor: pointer;
-  animation: float 2s ease-in-out infinite;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
+.letter-page{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;animation:slideUp .6s ease forwards}
+@keyframes slideUp{from{transform:translateY(100%);opacity:0}to{transform:translateY(0);opacity:1}}
 
-@keyframes float{
-  0%{transform: translateY(0);}
-  50%{transform: translateY(-8px);}
-  100%{transform: translateY(0);}
-}
-
-/* sliding page */
-.letter-page{
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: slideUp 0.7s ease forwards;
-}
-
-@keyframes slideUp{
-  from { transform: translateY(100%); opacity:0; }
-  to   { transform: translateY(0); opacity:1; }
-}
-
-/* vintage paper */
-.letter-paper{
-  background: #f8f1e7;
-  width: min(520px, 92%);
-  max-height: 80vh;
-  overflow-y: auto;
-  padding: 32px;
-  border-radius: 8px;
-  line-height: 1.8;
-  font-style: italic;
-  box-shadow: 0 0 35px rgba(0,0,0,0.45);
-  position: relative;
-}
-
-/* subtle paper texture */
-.letter-paper::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  background-image: radial-gradient(rgba(0,0,0,0.03) 1px, transparent 1px);
-  background-size: 6px 6px;
-  pointer-events:none;
-}
-
-.back-btn{
-  margin-top: 25px;
-  padding: 8px 16px;
-  background: #5a3e36;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-/* 📱 mobile improvements */
-@media (max-width:480px){
-  .letter-paper{
-    padding: 22px;
-    font-size: 15px;
-  }
-}
-
-/* ❤️ LETTER EXPERIENCE */
-
-.letter-overlay{
-  position: fixed;
-  inset: 0;
-  background: rgba(20,10,10,0.65);
-  backdrop-filter: blur(4px);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-.envelope{
-  font-size: 64px;
-  cursor: pointer;
-  animation: float 2s ease-in-out infinite;
-  transition: transform 0.4s ease, opacity 0.4s ease;
-}
-
-@keyframes float{
-  0%{transform: translateY(0);}
-  50%{transform: translateY(-8px);}
-  100%{transform: translateY(0);}
-}
-
-.letter-page{
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  animation: slideUp 0.6s ease forwards;
-}
-
-@keyframes slideUp{
-  from { transform: translateY(100%); opacity:0;}
-  to { transform: translateY(0); opacity:1;}
-}
-
-.letter-paper{
-  background: #f8f1e7;
-  width: min(520px, 92%);
-  max-height: 80vh;
-  overflow-y: auto;
-  padding: 32px;
-  border-radius: 8px;
-  line-height: 1.8;
-  font-style: italic;
-  box-shadow: 0 0 35px rgba(0,0,0,0.45);
-}
-
-.back-btn{
-  margin-top: 20px;
-  padding: 8px 16px;
-  background: #5a3e36;
-  color: white;
-  border: none;
-  border-radius: 20px;
-  cursor: pointer;
-}
+.letter-paper{background:#f8f1e7;width:min(520px,92%);padding:28px;border-radius:8px;line-height:1.8;font-style:italic;box-shadow:0 0 35px rgba(0,0,0,.45)}
+.back-btn{margin-top:20px;padding:8px 16px;background:#5a3e36;color:#fff;border:none;border-radius:20px;cursor:pointer}
+.letter-btn{margin:18px auto;width:fit-content;padding:10px 20px;background:#5a3e36;color:#fff;border-radius:20px;cursor:pointer}
 
 @media(max-width:480px){
-  .letter-paper{
-    padding: 22px;
-    font-size: 15px;
-  }
+.polaroid.large{width:95%}
 }
-
-
-
-
-
-
