@@ -73,6 +73,20 @@ function showDay(index){
   setupAudio(days[index]);
   closeLetter();
   currentIndex = index;
+
+  // ✅ Hide NEXT on last page (Feb 14)
+  if(index === days.length - 1){
+    nextBtn.style.display = "none";
+  } else {
+    nextBtn.style.display = "inline-block";
+  }
+
+  // ✅ Hide PREVIOUS on first page (Feb 7)
+  if(index === 0){
+    prevBtn.style.display = "none";
+  } else {
+    prevBtn.style.display = "inline-block";
+  }
 }
 
 function showEarlyMessage(){
@@ -125,5 +139,3 @@ function closeLetter(){
 
 currentIndex = getTodayIndex();
 showDay(currentIndex);
-
-
