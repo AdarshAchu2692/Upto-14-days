@@ -40,7 +40,6 @@ function setupAudio(section){
     };
   }
 
-  // pause music only if video has sound
   if(video && music && !video.muted){
     video.onplay = ()=> music.pause();
     video.onpause = ()=> music.play().catch(()=>{});
@@ -52,37 +51,27 @@ function getTodayIndex(){
   if(DEV_MODE) return 0;
 
   const today = new Date();
-
   if(today.getMonth() !== MONTH) return 0;
 
-  const todayDay = today.getDate();
+  const d = today.getDate();
+  if(d < START_DAY) return 0;
+  if(d > END_DAY) return days.length - 1;
 
-  if(todayDay < START_DAY) return 0;
-
-  if(todayDay > END_DAY) return days.length - 1;
-
-  return todayDay - START_DAY;
+  return d - START_DAY;
 }
 
 function isAllowed(index){
   if(DEV_MODE) return true;
-
   const today = new Date();
-  if(today.getMonth() !== MONTH) return false;
-
   return today.getDate() >= START_DAY + index;
 }
 
 function showDay(index){
   stopAllMedia();
-
-  days.forEach(d => d.style.display='none');
+  days.forEach(d=>d.style.display='none');
   days[index].style.display='block';
-
   setupAudio(days[index]);
-
-  closeLetter(); // ensure overlay closed
-
+  closeLetter();
   currentIndex = index;
 }
 
@@ -91,75 +80,48 @@ function showEarlyMessage(){
   nextModal.classList.remove('hidden');
 }
 
-nextContinueBtn.onclick = ()=>{
-  nextModal.classList.add('hidden');
-};
+nextContinueBtn.onclick = ()=> nextModal.classList.add('hidden');
 
-prevBtn.onclick = ()=>{
-  if(currentIndex > 0){
-    showDay(currentIndex - 1);
-  }
-};
+prevBtn.onclick = ()=>{ if(currentIndex>0) showDay(currentIndex-1); };
 
 nextBtn.onclick = ()=>{
   const nextIndex = currentIndex + 1;
-
   if(nextIndex < days.length){
-    if(isAllowed(nextIndex)){
-      showDay(nextIndex);
-    } else {
-      showEarlyMessage();
-    }
+    if(isAllowed(nextIndex)) showDay(nextIndex);
+    else showEarlyMessage();
   }
 };
 
-// Promise Day voice logic
+/* Promise voice */
 const promiseMusic = document.getElementById('promiseMusic');
 const promiseVoice = document.getElementById('promiseVoice');
 
 if(promiseMusic && promiseVoice){
   promiseVoice.onplay = ()=> promiseMusic.pause();
   promiseVoice.onended = ()=> promiseMusic.play().catch(()=>{});
-  promiseVoice.onpause = ()=> promiseMusic.play().catch(()=>{});
 }
 
-/* ❤️ LETTER LOGIC */
+/* LETTER */
 const overlay = document.getElementById('letterOverlay');
 const envelope = document.getElementById('envelope');
 const letterPage = document.getElementById('letterPage');
 
 function openLetter(){
-  if(!overlay) return;
-
   overlay.classList.remove('hidden');
   letterPage.classList.add('hidden');
-
-  envelope.style.display = "block";
-  envelope.style.opacity = 1;
-  envelope.style.transform = "scale(1)";
-
-  document.body.style.overflow = "hidden";
+  envelope.style.display="block";
+  document.body.style.overflow="hidden";
 }
 
-if(envelope){
-  envelope.onclick = () => {
-    envelope.style.transform = "scale(1.8)";
-    envelope.style.opacity = 0;
-
-    setTimeout(()=>{
-      envelope.style.display = "none";
-      letterPage.classList.remove('hidden');
-    }, 400);
-  };
-}
+envelope.onclick = ()=>{
+  envelope.style.display="none";
+  letterPage.classList.remove('hidden');
+};
 
 function closeLetter(){
-  if(!overlay) return;
-
   overlay.classList.add('hidden');
-  document.body.style.overflow = "auto";
+  document.body.style.overflow="auto";
 }
 
-// INIT
 currentIndex = getTodayIndex();
 showDay(currentIndex);
