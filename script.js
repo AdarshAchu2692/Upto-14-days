@@ -114,35 +114,46 @@ if(promiseMusic && promiseVoice){
 
 
 // ❤️ IMMERSIVE LETTER LOGIC
+// ❤️ IMMERSIVE LETTER LOGIC
 const overlay = document.getElementById('letterOverlay');
 const envelope = document.getElementById('envelope');
 const letterPage = document.getElementById('letterPage');
 
 function openLetter(){
+  if (!overlay) return;
+
   overlay.classList.remove('hidden');
   letterPage.classList.add('hidden');
+
   envelope.style.display = "block";
   envelope.style.opacity = 1;
   envelope.style.transform = "scale(1)";
+
   document.body.style.overflow = "hidden";
 }
 
-envelope.addEventListener('click', () => {
-  envelope.style.transform = "scale(1.8)";
-  envelope.style.opacity = 0;
+if (envelope) {
+  envelope.addEventListener('click', () => {
+    envelope.style.transform = "scale(1.8)";
+    envelope.style.opacity = 0;
 
-  setTimeout(() => {
-    envelope.style.display = "none";
-    letterPage.classList.remove('hidden');
-  }, 400);
-});
+    setTimeout(() => {
+      envelope.style.display = "none";
+      letterPage.classList.remove('hidden');
+    }, 400);
+  });
+}
 
 function closeLetter(){
+  if (!overlay) return;
+
   overlay.classList.add('hidden');
   document.body.style.overflow = "auto";
 }
 
+
 showDay(0);
+
 
 
 
