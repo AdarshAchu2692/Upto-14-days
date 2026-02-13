@@ -46,3 +46,23 @@ display:flex;align-items:center;justify-content:center;z-index:9999
 @media(max-width:480px){
 .polaroid.large{width:95%}
 }
+/* ❤️ Valentine Day immersive mode (mobile only) */
+@media (max-width: 600px){
+
+  .valentine-final{
+    background: #f8f1e7;
+    margin-left: -18px;
+    margin-right: -18px;
+    padding-bottom: 40px;
+  }
+
+  .valentine-final::before{
+    content:"";
+    position: fixed;
+    inset: 0;
+    background: #f8f1e7;
+    z-index: -1;
+  }
+
+}
+
