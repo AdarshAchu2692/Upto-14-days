@@ -1,6 +1,7 @@
 const DEV_MODE = true;
 
 const START_DAY = 7;
+const END_DAY = 14;
 const MONTH = 1;
 
 const days = Array.from(document.querySelectorAll('.day'));
@@ -28,40 +29,48 @@ function setupAudio(section){
   const music = section.querySelector('.bgMusic, #promiseMusic');
   const video = section.querySelector('video');
 
-  if (start && music) {
-    start.onclick = () => {
-      music.play().catch(()=>{});
-    };
+  if(start && music){
+    start.onclick = ()=> music.play().catch(()=>{});
   }
 
-  if (stop && music) {
-    stop.onclick = () => {
+  if(stop && music){
+    stop.onclick = ()=>{
       music.pause();
       music.currentTime = 0;
     };
   }
 
-  // 🎬 ONLY stop music if video has audio
-  if (video && music && !video.muted) {
-    video.addEventListener('play', () => {
-      music.pause();
-    });
-
-    video.addEventListener('pause', () => {
-      music.play().catch(()=>{});
-    });
-
-    video.addEventListener('ended', () => {
-      music.play().catch(()=>{});
-    });
+  // pause music only if video has sound
+  if(video && music && !video.muted){
+    video.onplay = ()=> music.pause();
+    video.onpause = ()=> music.play().catch(()=>{});
+    video.onended = ()=> music.play().catch(()=>{});
   }
 }
 
+function getTodayIndex(){
+  if(DEV_MODE) return 0;
+
+  const today = new Date();
+
+  if(today.getMonth() !== MONTH) return 0;
+
+  const todayDay = today.getDate();
+
+  if(todayDay < START_DAY) return 0;
+
+  if(todayDay > END_DAY) return days.length - 1;
+
+  return todayDay - START_DAY;
+}
 
 function isAllowed(index){
   if(DEV_MODE) return true;
+
   const today = new Date();
-  return today.getMonth() === MONTH && today.getDate() >= START_DAY + index;
+  if(today.getMonth() !== MONTH) return false;
+
+  return today.getDate() >= START_DAY + index;
 }
 
 function showDay(index){
@@ -72,28 +81,29 @@ function showDay(index){
 
   setupAudio(days[index]);
 
-  // ❤️ ensure letter is closed when entering Valentine Day
-  const overlay = document.getElementById('letterOverlay');
-  if (overlay) overlay.classList.add('hidden');
-  document.body.style.overflow = "auto";
+  closeLetter(); // ensure overlay closed
 
   currentIndex = index;
 }
-
 
 function showEarlyMessage(){
   nextMessageText.innerText = TOO_EARLY_MESSAGE;
   nextModal.classList.remove('hidden');
 }
 
-nextContinueBtn.onclick = ()=> nextModal.classList.add('hidden');
+nextContinueBtn.onclick = ()=>{
+  nextModal.classList.add('hidden');
+};
 
 prevBtn.onclick = ()=>{
-  if(currentIndex > 0) showDay(currentIndex - 1);
+  if(currentIndex > 0){
+    showDay(currentIndex - 1);
+  }
 };
 
 nextBtn.onclick = ()=>{
   const nextIndex = currentIndex + 1;
+
   if(nextIndex < days.length){
     if(isAllowed(nextIndex)){
       showDay(nextIndex);
@@ -103,24 +113,23 @@ nextBtn.onclick = ()=>{
   }
 };
 
+// Promise Day voice logic
 const promiseMusic = document.getElementById('promiseMusic');
 const promiseVoice = document.getElementById('promiseVoice');
 
 if(promiseMusic && promiseVoice){
-  promiseVoice.addEventListener('play', ()=> promiseMusic.pause());
-  promiseVoice.addEventListener('ended', ()=> promiseMusic.play().catch(()=>{}));
-  promiseVoice.addEventListener('pause', ()=> promiseMusic.play().catch(()=>{}));
+  promiseVoice.onplay = ()=> promiseMusic.pause();
+  promiseVoice.onended = ()=> promiseMusic.play().catch(()=>{});
+  promiseVoice.onpause = ()=> promiseMusic.play().catch(()=>{});
 }
 
-
-// ❤️ IMMERSIVE LETTER LOGIC
-// ❤️ IMMERSIVE LETTER LOGIC
+/* ❤️ LETTER LOGIC */
 const overlay = document.getElementById('letterOverlay');
 const envelope = document.getElementById('envelope');
 const letterPage = document.getElementById('letterPage');
 
 function openLetter(){
-  if (!overlay) return;
+  if(!overlay) return;
 
   overlay.classList.remove('hidden');
   letterPage.classList.add('hidden');
@@ -132,33 +141,25 @@ function openLetter(){
   document.body.style.overflow = "hidden";
 }
 
-if (envelope) {
-  envelope.addEventListener('click', () => {
+if(envelope){
+  envelope.onclick = () => {
     envelope.style.transform = "scale(1.8)";
     envelope.style.opacity = 0;
 
-    setTimeout(() => {
+    setTimeout(()=>{
       envelope.style.display = "none";
       letterPage.classList.remove('hidden');
     }, 400);
-  });
+  };
 }
 
 function closeLetter(){
-  if (!overlay) return;
+  if(!overlay) return;
 
   overlay.classList.add('hidden');
   document.body.style.overflow = "auto";
 }
 
-
-showDay(0);
-
-
-
-
-
-
-
-
-
+// INIT
+currentIndex = getTodayIndex();
+showDay(currentIndex);
