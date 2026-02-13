@@ -66,11 +66,20 @@ function isAllowed(index){
 
 function showDay(index){
   stopAllMedia();
-  days.forEach(d=>d.style.display='none');
+
+  days.forEach(d => d.style.display='none');
   days[index].style.display='block';
+
   setupAudio(days[index]);
+
+  // ❤️ ensure letter is closed when entering Valentine Day
+  const overlay = document.getElementById('letterOverlay');
+  if (overlay) overlay.classList.add('hidden');
+  document.body.style.overflow = "auto";
+
   currentIndex = index;
 }
+
 
 function showEarlyMessage(){
   nextMessageText.innerText = TOO_EARLY_MESSAGE;
@@ -134,6 +143,7 @@ function closeLetter(){
 }
 
 showDay(0);
+
 
 
 
