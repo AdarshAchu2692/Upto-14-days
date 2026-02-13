@@ -208,17 +208,61 @@ Always. ❤️.</p>
   </section>
 
   <!-- ❤️ VALENTINE DAY -->
-  <section class="day">
-    <h2>❤️ Valentine’s Day</h2>
+  <!-- ❤️ VALENTINE DAY -->
+<section class="day">
+  <h2>❤️ Valentine’s Day</h2>
 
-    <video autoplay loop controls class="polaroid medium center-media">
-      <source src="assets/videos/valentine.mp4">
-    </video>
+  <div class="audio-controls">
+    <span class="audio-start">🎵 Start music</span>
+    <span class="audio-stop">⏹ Stop</span>
+  </div>
+  <audio class="bgMusic" loop>
+    <source src="assets/audio/valentine.mp3">
+  </audio>
 
-    <p class="text">You are my calm. My choice.</p>
-  </section>
+  <!-- LETTER BUTTON -->
+  <div class="letter-btn" onclick="openLetter()">
+    💌 A Letter for u
+  </div>
 
-</div>
+  <!-- LETTER PAGE -->
+  <div id="letterPage" class="letter hidden">
+    <div class="letter-paper">
+      <p>
+        I didn’t write this in a rush.  
+        I wrote it slowly… the way you became important to me.
+      </p>
+
+      <p>
+        Somewhere between ordinary days and quiet nights,  
+        you became the person I look for without thinking.
+      </p>
+
+      <p>
+        You are not loud in my life —  
+        you are calm, steady, and real.
+      </p>
+
+      <p>
+        And if love is a place…  
+        I think I’ve been standing next to you for a while now.
+      </p>
+
+      <p class="sign">— Yours ❤️</p>
+
+      <button class="back-btn" onclick="closeLetter()">
+        ← Back to Valentine Day
+      </button>
+    </div>
+  </div>
+
+  <!-- VIDEO -->
+  <video controls class="polaroid large center-media">
+    <source src="assets/videos/valentine.mp4">
+  </video>
+
+</section>
+
 
 <!-- ⏳ TOO EARLY MODAL -->
 <div id="nextMessageModal" class="next-modal hidden">
@@ -231,6 +275,7 @@ Always. ❤️.</p>
 <script src="script.js"></script>
 </body>
 </html>
+
 
 
 
